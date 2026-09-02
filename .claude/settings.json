@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "mcp__*",
+      "mcp__Supabase__execute_sql",
+      "mcp__Supabase__apply_migration",
+      "mcp__Neon__run_sql",
+      "mcp__Neon__run_sql_transaction",
+      "mcp__Render__query_render_postgres"
+    ],
+    "ask": [
+      "Bash(rm -rf *)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Bash(git clean -f*)",
+      "mcp__Supabase__delete_project",
+      "mcp__Supabase__pause_project",
+      "mcp__Neon__delete_project",
+      "mcp__Neon__delete_branch",
+      "mcp__Neon__delete_postgres_database",
+      "mcp__Cloudflare_Developer_Platform__r2_bucket_delete",
+      "mcp__Cloudflare_Developer_Platform__kv_namespace_delete",
+      "mcp__Cloudflare_Developer_Platform__d1_database_delete",
+      "mcp__Cloudflare_Developer_Platform__hyperdrive_config_delete"
+    ]
+  }
+}
