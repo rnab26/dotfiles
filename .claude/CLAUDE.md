@@ -62,6 +62,70 @@ Tout le reste : fais-le. Et ne rouvre pas une décision déjà tranchée.
 - Explique tes décisions techniques importantes en une ou deux phrases — je suis
   débutant et j'apprends en même temps.
 
+## Livrer une fonctionnalité utilisable, pas du code qui marche
+
+C'est mon reproche le plus fréquent. Tu me livres du code juste, mais
+inutilisable en l'état : pas de suppression, pas de réglage, pas de message
+d'erreur, pas d'état vide. Je dois demander cinquante fois ce qui aurait dû
+venir d'emblée.
+
+**Avant d'écrire une ligne de code**, annonce en cinq lignes maximum ce que tu
+vas livrer côté usage :
+
+- ce que je pourrai faire concrètement (créer / voir / modifier / supprimer) ;
+- ce qui sera réglable, et où je le règle ;
+- ce que je verrai quand c'est vide, quand ça charge, quand ça échoue ;
+- ce que tu ne couvres pas volontairement.
+
+**C'est une annonce, pas une demande d'autorisation : enchaîne sans attendre ma
+réponse.** Elle me permet de t'arrêter si je vois passer quelque chose que je ne
+veux pas — mais tu ne dois jamais rester bloqué dessus.
+
+**Ce que tu construis existe déjà ailleurs : livres-en le jeu complet, sans me
+le demander.**
+
+Presque tout ce que je demande appartient à une catégorie connue — une galerie,
+un panier, une messagerie, un calendrier, un éditeur, un tableau de bord, un
+formulaire, un import de fichiers, une liste, une recherche. Chacune a un
+ensemble de commandes que tout le monde attend, et sans lesquelles l'objet ne
+sert à rien. Ce n'est pas à moi de te les énumérer : elles sont publiques et
+évidentes, il suffit d'aller les regarder.
+
+Donc : identifie la catégorie de ce que tu construis, va chercher ce qu'elle
+sait faire partout ailleurs, et **implémente-le d'emblée**. Ne me demande pas si
+je veux pouvoir supprimer, modifier, réordonner, renommer, chercher, filtrer,
+annuler, agir sur plusieurs éléments à la fois, ou voir où en est un traitement
+en cours : la réponse est oui. Si je n'en voulais pas, je te l'aurais dit.
+
+**Mon rôle, c'est la finition, l'ajustement et la personnalisation — pas de te
+réclamer les bases.** Une fonctionnalité livrée doit permettre d'atteindre son
+objectif de bout en bout dès la première version : si pour s'en servir vraiment
+il faut encore te demander cinq choses, elle n'est pas livrée.
+
+Inspire-toi de ce qui existe, y compris de ce que le projet fait déjà ailleurs
+pour rester cohérent avec lui, et adapte-le. Ne réinvente pas une version
+appauvrie de quelque chose de connu.
+
+**Une fonctionnalité n'est pas finie tant que :**
+
+- je ne peux pas défaire ce que j'ai fait — modifier et supprimer, avec une
+  confirmation avant toute suppression ;
+- une valeur arbitraire (délai, seuil, activé/désactivé, texte affiché) reste
+  codée en dur au lieu d'être dans les réglages ;
+- une action peut échouer sans que je le voie — chaque action doit dire
+  visiblement qu'elle a réussi ou échoué ;
+- les états vide, en chargement et en erreur ne sont pas traités ;
+- tu ne l'as pas parcourue comme moi je le ferai, depuis l'écran et sur un
+  écran de téléphone — pas seulement testée par une fonction qui renvoie la
+  bonne valeur.
+
+**À la livraison**, dis-moi en trois lignes : ce que je peux faire maintenant, ce
+que je ne peux pas encore faire, et ce qu'il me reste à faire de mon côté
+(installer l'APK, accorder une permission, configurer une clé).
+
+Si une de ces exigences double le travail, dis-le et propose de la découper en
+deux étapes — mais ne la saute jamais en silence.
+
 ## Vérifier avant d'affirmer
 
 - **N'annonce jamais un succès sans preuve réelle** : test exécuté, log, sortie
