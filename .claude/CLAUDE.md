@@ -314,3 +314,31 @@ Supabase (Auth + Postgres + Storage) côté backend, React + Tailwind + shadcn/u
 côté front, hébergement statique type GitHub Pages quand c'est adapté. Le dépôt
 Git est la source de vérité : ne laisse jamais dériver le code déployé et le
 code versionné.
+
+## Cockpit de développement — sur n'importe quel projet
+
+Sur Jarvis (rnab26/Jarvis-assistant), j'ai un cockpit interne : une table
+Supabase (`dev_items` pour les chantiers, `dev_log` pour le journal et les
+questions), un hook de démarrage qui l'injecte automatiquement dans le
+contexte de chaque session, et une discipline autour (réservation d'un
+chantier avant d'y toucher, relire une note avant de l'écraser, une question
+qui vit en base et jamais dans un document externe). Ça marche très bien et
+je veux pouvoir le remonter sur n'importe quel autre projet à la demande.
+
+**Ce dépôt (`rnab26/dotfiles`) porte le kit réutilisable** : `cockpit-kit/`
+(migrations SQL, `scripts/sql.sh`, `scripts/demander.sh`, le hook de
+démarrage, un CLAUDE.md-type à adapter) et le skill `.claude/skills/cockpit/`
+qui sait l'installer.
+
+**Quand je te dis, sur N'IMPORTE QUEL projet, « monte un cockpit », « crée le
+cockpit » ou « modifie le cockpit »** : attache ce dépôt (`rnab26/dotfiles`)
+si tu ne l'as pas déjà, suis le skill `cockpit` (`.claude/skills/cockpit/SKILL.md`)
+qui t'explique la procédure complète et les pièges déjà payés à ne pas
+reproduire (documentés dans `cockpit-kit/README.md`). Ne réinvente pas le
+mécanisme à chaque fois : copie et adapte le kit, ne le réécris pas de zéro.
+
+**Une évolution du kit lui-même** (une leçon apprise sur un projet, un
+correctif au hook, une nouvelle pièce générique) se fait ICI, dans
+`rnab26/dotfiles/cockpit-kit/` — jamais seulement sur le projet où tu l'as
+découverte, sinon les prochaines installations sur d'autres projets repartent
+sans en profiter.
