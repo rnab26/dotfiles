@@ -40,7 +40,24 @@ etc. — tous documentés dans `cockpit-kit/README.md`, section finale).
 7. Dis à Raphaël où poser `SUPABASE_URL` et `SUPABASE_SERVICE_ROLE_KEY`
    (variables d'environnement de l'environnement cloud Claude Code de CE
    projet, jamais dans le dépôt) — tu ne peux pas les poser toi-même.
-8. Vérifie que `scripts/sql.sh "select 1"` répond, commit, et dis en trois
+8. **Construis l'écran visuel du cockpit — ne t'arrête pas à la base de
+   données.** Une table sans écran n'est utile qu'aux sessions Claude Code
+   (via le hook), pas à Raphaël qui veut le VOIR et cliquer dessus. AVANT de
+   coder cet écran :
+   - Identifie le stack réel du dépôt courant (`package.json` et son
+     framework, `requirements.txt`/`pyproject.toml` avec `streamlit`, HTML
+     brut, Java, autre) — NE PRÉSUME PAS que c'est du React/Tailwind/shadcn
+     comme Jarvis. Le cockpit doit s'adapter au projet, jamais l'inverse.
+   - Lis `cockpit-kit/FONCTIONNALITES.md` : c'est le cahier des charges
+     fonctionnel (résumé "où j'en suis", ce qui a changé depuis la dernière
+     visite, filtre/recherche/actions groupées, fil de discussion par
+     chantier, ce qui attend une décision, archives, doublons) — écrit
+     indépendamment du langage. Construis CES fonctions dans l'idiome du
+     stack détecté, avec ses propres briques (composants natifs du
+     framework, pas du JSX copié dans un projet Python).
+   - Une simple liste d'une ligne par chantier n'est PAS un cockpit terminé :
+     c'est le point de départ, insuffisant tel quel.
+9. Vérifie que `scripts/sql.sh "select 1"` répond, commit, et dis en trois
    lignes ce qui est fait / ce qu'il reste à faire côté Raphaël (poser les
    variables d'environnement, au minimum).
 
