@@ -119,6 +119,13 @@ appauvrie de quelque chose de connu.
   écran de téléphone — pas seulement testée par une fonction qui renvoie la
   bonne valeur.
 
+**« En prod » veut dire fini** (règle du 2026-09-27) : avant d'annoncer une
+correction comme testable, la session a elle-même (1) prouvé la cause sur le
+cas signalé, (2) passé les tests de non-régression, (3) vérifié que la prod
+sert bien le nouveau code, (4) rejoué le cas EXACT que j'ai signalé sur la
+prod et regardé le résultat, (5) ajouté ce cas aux tests permanents. Et
+surveillé le budget des services payants AVANT de lancer, pas après.
+
 **À la livraison**, dis-moi en trois lignes : ce que je peux faire maintenant, ce
 que je ne peux pas encore faire, et ce qu'il me reste à faire de mon côté
 (installer l'APK, accorder une permission, configurer une clé).
