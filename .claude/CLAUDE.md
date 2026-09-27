@@ -189,6 +189,15 @@ n'importe quel repo, **sans qu'il ait à le rappeler**.
   threads (contexte `spawn`), un worker qui meurt ne doit jamais figer le
   lot (reprise du reste en série), résultats écrits au fur et à mesure et
   pas seulement à la fin.
+- **N processus en parallèle = N × fils ≤ cœurs.** Les librairies de calcul
+  (onnxruntime, OpenCV, BLAS, torch) prennent par défaut tous les cœurs
+  chacune : les limiter à un fil par processus (`OMP_NUM_THREADS=1`,
+  `intra_op_num_threads`, `cv2.setNumThreads`) et vérifier la charge
+  (`uptime` ≈ nombre de processus) juste après le lancement.
+- **Arrêter un lot** : tuer le parent (xargs, script) AVANT les enfants, sinon
+  l'étape suivante part sur une sortie tronquée ; supprimer les sorties
+  partielles. Jamais de `pkill -f` dont le motif figure dans la commande
+  même qui l'exécute.
 - **Mesurer l'effet, pas le bruit** : pour un correctif de post-traitement,
   comparer sur la MÊME entrée (seul le correctif change) avant de payer un
   GPU ; quand un modèle n'est pas déterministe, mesurer le bruit (même
