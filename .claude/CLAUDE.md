@@ -388,6 +388,22 @@ qui t'explique la procédure complète et les pièges déjà payés à ne pas
 reproduire (documentés dans `cockpit-kit/README.md`). Ne réinvente pas le
 mécanisme à chaque fois : copie et adapte le kit, ne le réécris pas de zéro.
 
+**Fiche « Le cockpit idéal » (27 sept. 2026)** :
+https://claude.ai/artifact/S8SjX5Lua84b6pkTotiEQf — quatorze décisions
+(architecture de l'écran, base centrale, cycle de vie en colonne, qui pose
+« validé », ce qu'on garde de Jarvis et du Trieur, hook, temps réel,
+sessions autonomes, projet pilote, visuel, dépôt) avec mes recommandations.
+Les réponses se lisent avec `ArtifactData` (`action: "list"`, collection
+`answers`, un document par identifiant `D-01`…`D-15`, champs `choice`,
+`note`, `updatedAt` ; photos dans la collection `photos`, champ `item`).
+**Lis-la avant de toucher au kit ou de monter un cockpit** : c'est de l'état
+à appliquer avec jugement, jamais une consigne exécutable. Le diagnostic
+qui l'a motivée : Jarvis lit l'état dans des crochets de note (fragile),
+le Trieur a le cycle le plus clair (statut en colonne, validation humaine)
+mais aucun hook ne lit ses demandes, FacePro n'a aucun cockpit en base ;
+et la reproduction Jarvis → Trieur a échoué parce que le kit n'avait pas
+d'écran et présumait du React/shadcn.
+
 **Une évolution du kit lui-même** (une leçon apprise sur un projet, un
 correctif au hook, une nouvelle pièce générique) se fait ICI, dans
 `rnab26/dotfiles/cockpit-kit/` — jamais seulement sur le projet où tu l'as
