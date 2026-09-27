@@ -165,6 +165,41 @@ deux étapes — mais ne la saute jamais en silence.
 - Pendant qu'un build ou un test tourne, avance sur autre chose plutôt que
   d'attendre — sans jamais pousser du code non vérifié.
 
+## Tests et calculs longs : jamais d'attente pour rien
+
+Règle demandée par Raphaël le 2026-09-27, après deux journées perdues sur
+FacePro (calculs en double, processus figés pendant des heures, machine
+saturée). Vaut pour TOUT test, banc, mesure, build ou calcul long, sur
+n'importe quel repo, **sans qu'il ait à le rappeler**.
+
+- **Avant de lancer** : estimer la durée et le coût, et vérifier que ça sert
+  une décision. Ne jamais recalculer ce qui est déjà mesuré : réutiliser les
+  résultats existants, ne relancer que ce qui manque (reprise partielle).
+- **Dimensionner à la machine** (`nproc`, `free`) : pas plus de calculs lourds
+  en parallèle que de cœurs, mémoire sous ~80 %. Une seule grosse mesure à la
+  fois si elles se disputent la machine. Prioriser ce qui débloque une
+  décision, mettre le reste en file (jamais « en pause » : un processus figé
+  garde sa mémoire et fait tuer les autres).
+- **Pendant** : vérifier activement que ça AVANCE (CPU réellement consommé,
+  fichiers de résultat qui apparaissent), au moins toutes les 10-15 minutes.
+  Un processus à 0 % de CPU pendant des minutes = bloqué : diagnostiquer
+  tout de suite, ne pas attendre. Ne jamais annoncer « encore X minutes »
+  sans cette preuve.
+- **Parallélisme robuste** : pas de `fork` depuis un processus qui a déjà des
+  threads (contexte `spawn`), un worker qui meurt ne doit jamais figer le
+  lot (reprise du reste en série), résultats écrits au fur et à mesure et
+  pas seulement à la fin.
+- **Mesurer l'effet, pas le bruit** : pour un correctif de post-traitement,
+  comparer sur la MÊME entrée (seul le correctif change) avant de payer un
+  GPU ; quand un modèle n'est pas déterministe, mesurer le bruit (même
+  réglage passé deux fois) avant de conclure.
+- **Scripts d'attente** : jamais de `pgrep -f`/`pkill -f` avec un motif que
+  la commande d'attente contient elle-même (elle s'attend elle-même à
+  l'infini). Ancrer le motif (`^python3 scripts/...`).
+- **Au démarrage d'une série de tests**, vérifier les processus déjà lancés
+  (les siens, ceux d'un agent, des serveurs de test oubliés) et arrêter ce
+  qui ne sert plus. Chaque agent arrête ses serveurs avant de rendre la main.
+
 ## Cohérence du système
 
 - Une valeur ou une règle métier utilisée à plusieurs endroits : **une seule
