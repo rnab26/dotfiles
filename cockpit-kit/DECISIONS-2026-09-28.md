@@ -148,6 +148,25 @@ hook. dotfiles garde le skill et pointe dessus.
   visuel du 27 sept.). Il n'avait pas compris que « brancher » ne touche pas à
   son site : c'est dit dans la conversation, et c'est réversible.
 
+## 29 sept. : propagation et ergonomie
+
+- **Propagation** (sa question « est-ce que les autres cockpits récupèrent les
+  évolutions en simultané, sans perte ? ») : l'app, le module et la base
+  l'étaient déjà (un seul exemplaire) ; les scripts des sessions, NON (copiés
+  et figés). Proposé : des lanceurs qui exécutent la dernière version de
+  Cockpit-General (code téléchargé depuis GitHub au démarrage, compromis
+  signalé). Sa réponse : « appliquer ces correctifs de façon générale, peu
+  importe le projet et peu importe le cockpit connecté » — pris comme un oui.
+  Livré : `modeles/cockpit-*.sh`, brancher.sh, FacePro migré (e1ab2bc).
+- **Ergonomie** (captures FacePro et Cockpit) : « je comprends rien », barres
+  qui ont l'air de travailler alors que personne n'est dessus, obligé de
+  défiler toutes les catégories, ne sait pas quoi vérifier ni comment relancer.
+  Demandé : « un entonnoir […] d'un coup d'œil, tous mes projets en même
+  temps ». Réponse : règle « preuve de vie » (`app/src/lib/presence.ts`),
+  encadré « Comment vérifier » (colonne `comment_verifier`, exigée à la
+  livraison), accueil « Tout » en trois blocs (En ce moment / À toi /
+  À lancer), sections repliées.
+
 ## Ce qui reste ouvert
 
 - Activer GitHub Pages sur `Cockpit-General` (seule action manuelle,
