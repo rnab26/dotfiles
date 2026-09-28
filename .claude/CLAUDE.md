@@ -187,6 +187,15 @@ n'importe quel repo, **sans qu'il ait à le rappeler**.
   fois si elles se disputent la machine. Prioriser ce qui débloque une
   décision, mettre le reste en file (jamais « en pause » : un processus figé
   garde sa mémoire et fait tuer les autres).
+- **Chaque job GPU/API payant est surveillé UN PAR UN, pas seulement la fin du
+  lot** (règle du 2026-09-28, FacePro : un job bloqué 50 min a brûlé ~3 $
+  sans que la session le voie). Trois barrières obligatoires : (1) une durée
+  maximale côté fournisseur (ex. `executionTimeoutMs` RunPod) sur tout
+  endpoint de test ; (2) dans chaque script qui soumet un job, une annulation
+  automatique au-delà d'un plafond de durée — aucune boucle d'attente sans
+  plafond ; (3) toutes les 10 minutes, relever la durée de chaque job en
+  cours et le solde, et annuler tout de suite un job au-delà de 2 fois sa
+  durée normale. Un agent en arrière-plan reçoit cette règle dans sa consigne.
 - **Pendant** : vérifier activement que ça AVANCE (CPU réellement consommé,
   fichiers de résultat qui apparaissent), au moins toutes les 10-15 minutes.
   Un processus à 0 % de CPU pendant des minutes = bloqué : diagnostiquer
