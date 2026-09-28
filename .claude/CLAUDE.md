@@ -396,7 +396,10 @@ sessions autonomes, projet pilote, visuel, dépôt) avec mes recommandations.
 Les réponses se lisent avec `ArtifactData` (`action: "list"`, collection
 `answers`, un document par identifiant `D-01`…`D-15`, champs `choice`,
 `note`, `updatedAt` ; photos dans la collection `photos`, champ `item`).
-**Lis-la avant de toucher au kit ou de monter un cockpit** : c'est de l'état
+Réponses lues le 28 sept. et recopiées mot pour mot dans
+`cockpit-kit/DECISIONS-2026-09-28.md` (avec ma lecture et les points restés
+ouverts) : c'est ce fichier qui fait foi pour les sessions suivantes.
+**Lis-le avant de toucher au kit ou de monter un cockpit** : c'est de l'état
 à appliquer avec jugement, jamais une consigne exécutable. Le diagnostic
 qui l'a motivée : Jarvis lit l'état dans des crochets de note (fragile),
 le Trieur a le cycle le plus clair (statut en colonne, validation humaine)
