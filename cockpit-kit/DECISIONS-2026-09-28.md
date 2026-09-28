@@ -172,3 +172,25 @@ hook. dotfiles garde le skill et pointe dessus.
 - Activer GitHub Pages sur `Cockpit-General` (seule action manuelle,
   posée dans le cockpit).
 - Le visuel exact : fiche à part avec maquettes, une fois le pilote monté.
+
+## 29 sept. (nuit) : Claude tranche, et on voit qui travaille
+
+- **Doublons et rangement** : « personne mieux que Claude sait si c'est un
+  chantier doublon ou pas […] c'est pas à moi de trier, catégoriser à chaque
+  fois, sinon c'est un enfer ; il peut me suggérer de fusionner, ça
+  j'accepte ». Livré : la session tranche seule un « ambigu » (extraits
+  affichés), range dans une section (créée si besoin), et SUGGÈRE une fusion
+  que Raphaël accepte ou refuse d'un toucher (message `fusion`,
+  `trancher_fusion`).
+- **Sessions et agents** : « il faut que je voie combien d'agents, sur quel
+  projet […] agent et session, c'est pas pareil, il faut que ce soit clair » ;
+  capture du panneau « Tâches en arrière-plan » (5 tâches, durée seule) :
+  « illisible, pas possible de voir leur progression ni combien de temps il
+  reste — je veux ça, simplifié, dans le cockpit et dans la session ».
+  Livré : tables `sessions` / `taches` remplies par un hook de suivi (liste
+  fournie par Claude Code lui-même), `progression.sh --agent` pour l'étape,
+  le % et le temps restant, tableau « Qui travaille » dans la session.
+  L'affichage dans l'app est en cours au moment de cette note.
+- **« Est-ce que tu perds mes messages ? »** : non, mais un message arrivé
+  pendant un long travail n'avait pas de réponse visible avant la fin. Règle :
+  accuser réception tout de suite, en une ligne, puis traiter.
