@@ -121,8 +121,35 @@ hook. dotfiles garde le skill et pointe dessus.
    table des passes et l'interrupteur viennent de Jarvis.
 4. **Vue Doublons côte à côte** (D-06), avec note et médias sur la fusion.
 
+## Précisions de Raphaël, 28 sept. après-midi (dans la conversation)
+
+- **Dépôt** : `rnab26/Cockpit-General`, créé par lui (une session ne peut pas
+  créer de dépôt). App : https://rnab26.github.io/Cockpit-General/.
+- **Branchable partout, « primordial »** : « si demain j'ai un site en Python,
+  en HTML, n'importe quoi, faut que le cockpit se branche n'importe où,
+  facilement ». Réponse livrée : l'app est hébergée à part, le module
+  embarqué est une balise `<script>` sans framework (Shadow DOM), et
+  `brancher.sh` installe la partie sessions sur n'importe quel dépôt.
+- **D-09 tranché** : « actualisation live hyper précis ». Temps réel
+  Supabase ; pas de notifications en v1.
+- **D-07, la progression** : son visuel de référence est le tableau de barres
+  qu'il demandait aux sessions FacePro (`Cockpit-General/docs/visuel-progression-facepro.png`).
+  « Il faudrait exactement la même chose dans la ou les sessions concernées,
+  c'est le plus fiable, sans que j'aie à demander […] ça doit être une
+  constante », « vraiment du live, avec un aperçu du temps restant », « pour
+  éviter de relancer la session et d'oublier certaines choses ». Constat :
+  sur FacePro ces barres « sont stables et ne bougent pas en live ».
+  Réponse livrée : `progression.sh` écrit une ligne en base à chaque étape et
+  imprime le même tableau dans la session ; l'app dessine la barre sur la
+  ligne du chantier, en direct, avec l'étape et le temps restant. Une barre
+  ne bouge que si la session l'appelle : le bloc CLAUDE.md posé par
+  `brancher.sh` l'exige à chaque étape et en terminant.
+- **FacePro branché** le 28 sept. (scripts, hook, 11 chantiers repris de son
+  visuel du 27 sept.). Il n'avait pas compris que « brancher » ne touche pas à
+  son site : c'est dit dans la conversation, et c'est réversible.
+
 ## Ce qui reste ouvert
 
-- D-09 : périodique ou temps réel (lecture retenue : temps réel).
-- Le nom du dépôt (D-14 laisse le choix ; proposition : `rnab26/cockpit`).
+- Activer GitHub Pages sur `Cockpit-General` (seule action manuelle,
+  posée dans le cockpit).
 - Le visuel exact : fiche à part avec maquettes, une fois le pilote monté.
