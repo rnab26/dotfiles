@@ -376,17 +376,20 @@ chantier avant d'y toucher, relire une note avant de l'écraser, une question
 qui vit en base et jamais dans un document externe). Ça marche très bien et
 je veux pouvoir le remonter sur n'importe quel autre projet à la demande.
 
-**Ce dépôt (`rnab26/dotfiles`) porte le kit réutilisable** : `cockpit-kit/`
-(migrations SQL, `scripts/sql.sh`, `scripts/demander.sh`, le hook de
-démarrage, un CLAUDE.md-type à adapter) et le skill `.claude/skills/cockpit/`
-qui sait l'installer.
+**Depuis le 28 sept. 2026, le cockpit est un dépôt à part : `rnab26/cockpit`**
+(app https://rnab26.github.io/cockpit/, base Supabase centrale schéma
+`cockpit`, module embarquable `<script>` pour n'importe quel site, scripts et
+hook pour les sessions). Un projet s'y BRANCHE avec `scripts/brancher.sh`,
+il n'y a plus de kit à recopier. Ce dépôt (`rnab26/dotfiles`) garde le skill
+`.claude/skills/cockpit/` qui sait brancher un projet et pointe sur
+`rnab26/cockpit`, plus l'historique (`cockpit-kit/`, ancien modèle, et les
+décisions de Raphaël dans `cockpit-kit/DECISIONS-2026-09-28.md`).
 
-**Quand je te dis, sur N'IMPORTE QUEL projet, « monte un cockpit », « crée le
-cockpit » ou « modifie le cockpit »** : attache ce dépôt (`rnab26/dotfiles`)
-si tu ne l'as pas déjà, suis le skill `cockpit` (`.claude/skills/cockpit/SKILL.md`)
-qui t'explique la procédure complète et les pièges déjà payés à ne pas
-reproduire (documentés dans `cockpit-kit/README.md`). Ne réinvente pas le
-mécanisme à chaque fois : copie et adapte le kit, ne le réécris pas de zéro.
+**Quand je te dis, sur N'IMPORTE QUEL projet, « monte un cockpit », « branche
+le cockpit » ou « modifie le cockpit »** : suis le skill `cockpit`
+(`.claude/skills/cockpit/SKILL.md`). Brancher = `brancher.sh` de
+`rnab26/cockpit` sur le projet courant ; modifier = travailler dans
+`rnab26/cockpit`, jamais dans un projet branché.
 
 **Fiche « Le cockpit idéal » (27 sept. 2026)** :
 https://claude.ai/artifact/S8SjX5Lua84b6pkTotiEQf — quatorze décisions
@@ -407,8 +410,8 @@ mais aucun hook ne lit ses demandes, FacePro n'a aucun cockpit en base ;
 et la reproduction Jarvis → Trieur a échoué parce que le kit n'avait pas
 d'écran et présumait du React/shadcn.
 
-**Une évolution du kit lui-même** (une leçon apprise sur un projet, un
-correctif au hook, une nouvelle pièce générique) se fait ICI, dans
-`rnab26/dotfiles/cockpit-kit/` — jamais seulement sur le projet où tu l'as
-découverte, sinon les prochaines installations sur d'autres projets repartent
-sans en profiter.
+**Une évolution du cockpit** (une leçon apprise sur un projet, un correctif
+au hook, une nouvelle pièce) se fait dans `rnab26/cockpit` — jamais seulement
+sur le projet où tu l'as découverte, sinon les autres projets branchés n'en
+profitent jamais. Une décision de Raphaël se consigne dans
+`cockpit-kit/DECISIONS-*.md` ici.
