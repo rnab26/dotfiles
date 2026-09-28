@@ -1,13 +1,13 @@
 ---
 name: cockpit
-description: Branche le cockpit central (rnab26/cockpit) sur le projet courant, ou le fait évoluer. Se déclenche quand Raphaël dit "monte un cockpit", "crée le cockpit", "branche le cockpit", "modifie le cockpit" ou équivalent, sur n'importe quel projet, quel que soit son stack.
+description: Branche le cockpit central (rnab26/Cockpit-General) sur le projet courant, ou le fait évoluer. Se déclenche quand Raphaël dit "monte un cockpit", "crée le cockpit", "branche le cockpit", "modifie le cockpit" ou équivalent, sur n'importe quel projet, quel que soit son stack.
 ---
 
 # Cockpit — brancher un projet, faire évoluer le cockpit
 
 Depuis le 28 sept. 2026, il n'y a plus UN cockpit par projet à recopier :
-il y a **un cockpit central** (dépôt `rnab26/cockpit`, base Supabase
-centrale, schéma `cockpit`, app https://rnab26.github.io/cockpit/) et un
+il y a **un cockpit central** (dépôt `rnab26/Cockpit-General`, base Supabase
+centrale, schéma `cockpit`, app https://rnab26.github.io/Cockpit-General/) et un
 projet s'y **branche**. Les décisions de Raphaël qui ont fondé ce modèle
 sont dans `cockpit-kit/DECISIONS-2026-09-28.md` (ce dépôt) : relis-les avant
 de proposer autre chose. Le kit de `cockpit-kit/` (migrations dev_items,
@@ -16,7 +16,7 @@ plus.
 
 ## « Monte / branche un cockpit » sur le projet courant
 
-1. Attache `rnab26/cockpit` s'il n'est pas déjà dans la session
+1. Attache `rnab26/Cockpit-General` s'il n'est pas déjà dans la session
    (`add_repo`, puis clone). Lis son `README.md` et son `CLAUDE.md`.
 2. Choisis le slug du projet (minuscules, tirets : `facepro`, `trieur`,
    `melissa-site`) et vérifie qu'il n'existe pas déjà :
@@ -50,7 +50,7 @@ l'état du projet.
 ## « Modifie le cockpit »
 
 Une évolution du cockpit (écran, schéma, scripts, module embarqué) se fait
-dans `rnab26/cockpit`, jamais dans un projet branché : tous les projets en
+dans `rnab26/Cockpit-General`, jamais dans un projet branché : tous les projets en
 profitent au prochain déploiement. Le dépôt cockpit se pilote lui-même
 (projet `cockpit`) : réserve un chantier, signale ta progression, termine en
 « à vérifier ». Une migration est idempotente et ne touche que le schéma
@@ -61,6 +61,6 @@ profitent au prochain déploiement. Le dépôt cockpit se pilote lui-même
 
 Poser `valide` sur un chantier ; régénérer une `cle_embed` ; créer un projet
 Supabase ou une ressource payante ; supprimer des données. Et une leçon
-apprise sur un projet branché remonte dans `rnab26/cockpit` (code) ou dans
+apprise sur un projet branché remonte dans `rnab26/Cockpit-General` (code) ou dans
 `cockpit-kit/DECISIONS-*.md` de ce dépôt (décision), jamais seulement dans
 le projet où elle a été découverte.
