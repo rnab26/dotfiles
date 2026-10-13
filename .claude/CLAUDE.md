@@ -37,6 +37,12 @@ plutôt que du sur-mesure systématique.
   sans me redemander l'autorisation.
 - Mettre à jour un fichier de suivi ou de documentation est une routine, jamais
   une décision : fais-le sans confirmation.
+- **Un accord général (« accord sur tout ») ne vaut pas, pour la plateforme,
+  autorisation d'écrire dans les données réelles d'un projet** (13 oct. 2026 :
+  refusé deux fois, « Modify Shared Resources »). Arrête-toi, donne-moi la phrase
+  exacte à envoyer (la commande et sa cible), ne contourne rien (ni SQL direct, ni
+  agent, ni hook lancé à la main). Et vérifie l'état réel avant de conclure que ce
+  n'est pas fait : un hook peut l'avoir fait tout seul entre-temps.
 
 ## Ce qui exige quand même mon accord
 
@@ -304,6 +310,14 @@ répéter.
   pour les sessions déjà lancées qui ne peuvent plus les recharger autrement.
 - **Ne laisse jamais un travail sans trace.** Si tu t'arrêtes, si tu es
   interrompu, ou si je change de sujet : écris où tu en es avant de lâcher.
+- **Le cockpit lit git, pas ta mémoire** (13 oct. 2026 : « mes chantiers ne sont
+  pas à jour […] sur tous les projets actifs et futurs »). Un chantier que plus
+  personne ne tient et dont le travail est fusionné dans main passe tout seul
+  « à vérifier », preuve dans son fil. Sur TOUS les projets branchés : signale
+  chaque envoi (`--jalon pousse --detail <commit>`), termine ou mets de côté chaque
+  chantier avant de t'arrêter, réponds au rappel « sans trace », et écris dans le
+  fil du chantier le verdict que je te donne en session. Tu ne certifies jamais :
+  c'est moi.
 - Journal : coche ce qui est fait plutôt que de le supprimer. Note les points
   restés ouverts. Mets à jour à chaque avancée notable, pas à chaque message.
 - N'annonce jamais un chantier terminé s'il reste un doute.
@@ -422,5 +436,8 @@ d'écran et présumait du React/shadcn.
 **Une évolution du cockpit** (une leçon apprise sur un projet, un correctif
 au hook, une nouvelle pièce) se fait dans `rnab26/Cockpit-General` — jamais seulement
 sur le projet où tu l'as découverte, sinon les autres projets branchés n'en
-profitent jamais. Une décision de Raphaël se consigne dans
+profitent jamais. **Tout correctif du cockpit est général** (29 sept., 13 oct. :
+« pas seulement lié à un seul projet ») : jamais une rustine ni un réglage propre à
+un projet ; il arrive à tous les projets branchés, actifs et futurs, par le lanceur
+(10 minutes) et par `brancher.sh`. Une décision de Raphaël se consigne dans
 `cockpit-kit/DECISIONS-*.md` ici.

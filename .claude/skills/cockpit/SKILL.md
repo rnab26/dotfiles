@@ -67,6 +67,11 @@ signale dans le bilan. Tu attends sa réponse ; tu n'enchaînes pas.
    différent au lieu de l'écraser.
 2. Vérifie le hook pour de vrai :
    `COCKPIT_PROJET=<slug> CLAUDE_PROJECT_DIR=<chemin> bash <chemin>/.claude/hooks/cockpit-session-start.sh | jq -r .hookSpecificOutput.additionalContext | head`.
+2 bis. Le rapprochement GitHub (les chantiers se ferment d'après `main`) démarre
+   tout seul avec les hooks, sans réglage : après la première session sur le
+   projet, Réglages › « Chantiers et GitHub » dit « À jour » (ou la cause de
+   l'échec). `brancher.sh` remplit `projets.depot`, dont il dépend. Ne pose jamais
+   « livré » à la main sur un chantier repris.
 3. Reprise, s'il l'a demandée : une ligne par chantier OUVERT, insérée
    avec `scripts/cockpit-sql.sh` (ou `sql.sh`) dans `chantiers`
    (`titre` ≤ 80 car., `demande` = ses mots, `etat` = `libre`, `a_cadrer`
@@ -103,8 +108,9 @@ l'état du projet.
 ## « Modifie le cockpit »
 
 Une évolution du cockpit (écran, schéma, scripts, module embarqué) se fait
-dans `rnab26/Cockpit-General`, jamais dans un projet branché : tous les projets en
-profitent au prochain déploiement. Le dépôt cockpit se pilote lui-même
+dans `rnab26/Cockpit-General`, jamais dans un projet branché : tous les projets, actifs
+et futurs, en profitent (Raphaël, 13 oct. : « pas seulement lié à un seul projet » ;
+jamais une rustine ni un réglage propre à un projet). Le dépôt cockpit se pilote lui-même
 (projet `cockpit`) : réserve un chantier, signale ta progression, termine en
 « à vérifier ». Une migration est idempotente et ne touche que le schéma
 `cockpit`. La fonction serveur `cockpit-embed` se redéploie à la main
