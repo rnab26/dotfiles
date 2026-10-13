@@ -211,3 +211,10 @@ hook. dotfiles garde le skill et pointe dessus.
   Le même passage se fait de toute façon tout seul à l'ouverture de la prochaine session FacePro (hook), une fois le code sur `main`.
 - **Resté ouvert** : relayer les verdicts que Raphaël dit DANS une session (carte « tu confirmes ? » en un toucher) ; un écran pour
   annuler un rapprochement ; la carte « FacePro : aucune session ne s'ouvre seule ».
+- **Suite, 13 oct. (Raphaël)** : « ces correctifs doivent être généraux, pas seulement liés à un seul projet : tu dois propager ça sur la
+  façon d'agir en général, sur tous les projets actifs et futurs ». Fait : le rapprochement ne contient rien de propre à FacePro (il a
+  d'ailleurs fermé tout seul, à l'ouverture d'une vraie session FacePro, les 5 chantiers prévus) ; consignes ajoutées au bloc que reçoit
+  chaque session de chaque projet branché (`docs/bloc-CLAUDE.md`), aux règles globales (`.claude/CLAUDE.md`) et au skill `cockpit`
+  (futurs projets) ; délais réglables par projet et interrupteur général (migration 0081). **Projets du cockpit central** : cockpit,
+  facepro, melissa-nabet. **Pas encore branchés** (donc hors rapprochement tant qu'on ne les branche pas) : Midrag, Trieur-Data,
+  Pointeur-Robot-Campaign, Jarvis-assistant (ancien cockpit), melissa-nabet-site.
