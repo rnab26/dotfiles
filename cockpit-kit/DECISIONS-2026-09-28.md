@@ -194,3 +194,20 @@ hook. dotfiles garde le skill et pointe dessus.
 - **« Est-ce que tu perds mes messages ? »** : non, mais un message arrivé
   pendant un long travail n'avait pas de réponse visible avant la fin. Règle :
   accuser réception tout de suite, en une ligne, puis traiter.
+
+## 13 oct. 2026 : les chantiers se mettent à jour d'après GitHub (git fait foi, pas la mémoire des sessions)
+
+- **Demande de Raphaël** : « une session Claude qui bosse sur plusieurs sujets sur un projet branché (FacePro) : est-ce que je suis
+  censé voir sa progression, et ses chantiers doivent-ils être créés, fusionnés, mis à jour automatiquement ? […] mes chantiers ne sont
+  pas à jour, les anciens et les nouveaux ne sont pas coordonnés […] comment régler ce nœud ? »
+- **Principe retenu** : le cockpit ne croit plus seulement ce que les sessions DÉCLARENT, il lit ce qu'elles ONT FAIT dans git. Un
+  chantier ouvert que personne ne tient et dont le travail est prouvé dans `main` passe « livré, à vérifier » tout seul, avec la preuve
+  dans son fil. Jamais « validé » : c'est lui. Une session vivante reçoit un rappel précis de ce qu'elle tient sans trace depuis 4 h.
+  Détail, preuves, limites : `rnab26/Cockpit-General`, `docs/rapprochement-github.md` (migration 0080).
+- **Son accord (13 oct., en cours de travail)** : « Je te donne mon accord sur tout », en réponse aux propositions en attente :
+  fermer sur preuve les chantiers FacePro livrés (5 sûrs au passage d'essai, 3 à la main), classer sans test les livrés anciens à
+  7 jours, fusionner et mettre en ligne. **Limite constatée** : la plateforme (classifieur « Modify Shared Resources ») a refusé deux
+  fois l'écriture sur FacePro malgré cet accord général ; elle demande l'autorisation PRÉCISE de la commande. Rien contourné.
+  Le même passage se fait de toute façon tout seul à l'ouverture de la prochaine session FacePro (hook), une fois le code sur `main`.
+- **Resté ouvert** : relayer les verdicts que Raphaël dit DANS une session (carte « tu confirmes ? » en un toucher) ; un écran pour
+  annuler un rapprochement ; la carte « FacePro : aucune session ne s'ouvre seule ».
