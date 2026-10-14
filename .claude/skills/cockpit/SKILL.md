@@ -107,7 +107,10 @@ signale dans le bilan. Tu attends sa réponse ; tu n'enchaînes pas.
 6. Commit (scripts, hook, settings.json, CLAUDE.md, balise) avec le pourquoi ; push
    de la branche. S'il a dit « en ligne » : `git fetch origin <main>`,
    fusion dans `<main>`, push, puis `git log origin/<main> -1` pour le
-   prouver. Projet sur Render : si seuls des fichiers du cockpit changent, la
+   prouver — et prouve que `<main>` PORTE le cockpit : `git show origin/<main>:.claude/settings.json | grep COCKPIT_PROJET`.
+   Un branchement resté sur une branche de travail est invisible des sessions ouvertes sur `<main>` : c'est ce qui a débranché
+   Melissa du 29 sept. au 14 oct. (le cockpit lit ce fichier sur la branche principale pour le dire à l'écran).
+   Message de fusion : `git merge --no-ff <branche> -m "…"` (le `-F -` de `git merge` ne lit pas l'entrée standard). Projet sur Render : si seuls des fichiers du cockpit changent, la
    phrase d'exclusion de Render (« skip render » entre crochets) dans le MESSAGE
    évite le redéploiement (doc Render ; vérifié le 14 oct. : événement « commit
    ignoré »). Piège payé le 14 oct. : Render la lit n'importe où dans le message,
@@ -123,6 +126,9 @@ signale dans le bilan. Tu attends sa réponse ; tu n'enchaînes pas.
 - **Pas fait** : ce qui manque, et pourquoi.
 - **À toi** : ce qu'il doit faire lui-même (ajouter des membres, une clé
   manquante, vérifier avec un vrai compte) — ou « rien ». La balise, c'est toi.
+- **Dis-lui pour la prise verte** (Trieur et Melissa, 14 oct. : « pourquoi les projets ne sont pas branchés ? ») : l'icône de
+  la liste des projets ne s'allume qu'à la première VRAIE session ouverte sur le dépôt, pas au branchement. Sans cette phrase il croit
+  que ça a échoué. L'écran « Réglages du projet » dit déjà pourquoi elle est éteinte.
 
 Prérequis côté environnement cloud du projet : `SUPABASE_SERVICE_ROLE_KEY`
 (la clé de la base centrale `bexiyvmdbxcwxasgslxp`), `jq`, `curl`, `python3`.

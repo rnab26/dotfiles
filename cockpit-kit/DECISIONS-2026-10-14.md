@@ -35,3 +35,22 @@ tests du Trieur. Skill `cockpit`, étape 5 réécrite : après les deux réponse
   bilan de branchement. Son geste dans l'app prime sur sa réponse précédente : ne pas l'éteindre sans qu'il le dise.
 - Render ignore un envoi dont le MESSAGE contient sa phrase d'exclusion n'importe où, même dans une phrase qui dit
   de ne pas l'utiliser (un envoi du Trieur a été ignoré ainsi ; mise en ligne lancée à la main).
+
+## D-17 — Melissa Nabet : le branchement se finit sur `main`, ses 18 chantiers sont repris, autonome « tout le temps »
+
+Sa question (captures des réglages de Melissa et de la liste des projets) : « pourquoi les réglages du projet de Melissa sont pas bons ? et pourquoi les projets ne sont pas branchés ».
+
+**Contexte et preuves.** Le branchement du 29 sept. était resté sur une branche de travail du dépôt, jamais fusionnée sur `main` : les sessions ouvertes sur `main` démarraient sans cockpit
+(« plus aucune session depuis 15 j », module du site jamais installé, rapprochement GitHub jamais passé). Le bandeau rouge « mise en ligne échouée » était faux (le site servait exactement `main`) :
+une tâche interne de GitHub avait échoué le 5 oct., sans plus aucun envoi depuis. Le Trieur est branché mais la prise verte exige une vraie session, qui n'a pas encore eu lieu.
+
+**Ses réponses (AskUserQuestion, 14 oct.)** : reprendre les 18 chantiers ouverts de l'ancien tableau = **oui** ; mettre le cockpit sur `main` tout de suite = **oui** ; mode autonome = **oui, tout le temps**
+(ma recommandation était « non pour l'instant » : son choix prime, ne pas l'éteindre à sa place ; le moteur l'éteint seul après 3 h sans rien à prendre).
+
+**Appliqué le jour même.** `brancher.sh` sur `claude/cockpit-melissa-nabet`, fusion `7158b96` sur `main` (preuve : `git ls-remote`), 18 chantiers repris (2 libres, 9 à cadrer, 7 bloqués par une action de Raphaël, du contenu de Mélissa ou une dépendance : mon classement,
+à corriger dans l'app s'il en juge autrement), `CLAUDE.md` / hook de démarrage / `docs/journal.md` de Melissa ne désignent plus l'ancien tableau comme source de vérité. Côté moteur : l'écran dit la cause (cockpit absent de `main`) et ne crie plus au loup
+(chantier `a225351a`). Skill `cockpit` : le bilan doit parler de la prise verte, et la preuve de la fusion inclut `git show origin/<main>:.claude/settings.json`.
+
+**Resté ouvert.** (1) La première carte d'emplacement est posée, sans réponse (la seconde arrive après la première) : la balise du module du site n'est pas collée. (2) Pages de Melissa : deux mises en ligne se disputent l'adresse du CRM (source Pages « une branche » + workflow du projet) ;
+après la fusion, `site-vitrine/` répond 200 sur l'adresse du CRM : réglage Pages ou `_config.yml` (décision de Raphaël). (3) « Réveil immédiat » de Melissa : facultatif, non en place, déconseillé (≈ 290 000 jetons relus à chaque réveil).
+(4) Sa réponse du 14 oct. 08:24 UTC « Programme dans ton compte Google » (reçus Claude en continu) : à construire, chantier `72a8d0f4`.
