@@ -83,22 +83,46 @@ signale dans le bilan. Tu attends sa réponse ; tu n'enchaînes pas.
 4. Mode autonome, s'il l'a demandé :
    `select cockpit.regler_autonome('<slug>', null, 20, true)` (tout le
    temps) ou `regler_autonome('<slug>', '<demain 09:00 Asia/Jerusalem>')`.
-5. Si le projet a des utilisateurs finaux : colle la balise imprimée par
-   `brancher.sh` dans la page qui leur convient (Jinja, React, HTML : c'est
-   une balise `<script>`, rien d'autre) ; ils s'ajoutent depuis l'app
-   (Projets & membres → e-mail) après leur première connexion.
+5. Si le projet a un site : `brancher.sh` pose deux cartes « À toi » (où le
+   cockpit apparaît, qui l'utilise). **Dès qu'il a répondu aux DEUX, la balise,
+   c'est toi qui la colles, jusqu'à la mise en ligne, sans rouvrir de décision**
+   (Raphaël, 14 oct. 2026, au bilan du Trieur : « on n'est pas censé pouvoir le
+   mettre directement en copier-coller quand on ajoute un projet ? » — je
+   l'avais laissé « pas fait » dans un chantier « à cadrer », à tort).
+   `scripts/cockpit-emplacement.sh --projet <slug> --balise [--gabarit "#id-du-lien"]`
+   donne la balise adaptée à ses réponses.
+   - Page HTML ou Jinja : dans le gabarit commun, juste avant `</body>`.
+   - Appli React ou Vue : un petit composant qui pose la balise (modèle : `frontend/src/components/CockpitCentral.tsx`
+     et `lib/cockpitCentral.ts` du Trieur), seulement pour les comptes qui y ont droit (accès « équipe » = les comptes
+     administrateurs du site : réutilise la règle d'accès de l'appli, n'en invente pas une) ; il retire la balise quand
+     le compte disparaît ; une seule porte pose la balise (un test le garde).
+   - Le module cherche le bouton du menu UNE fois, à son chargement : le bouton doit exister avant la balise. Un menu qui
+     déborde sur téléphone : mesure d'abord (largeur de la page, bouton visible au toucher) ; sans `data-declencheur`, le
+     module pose son bouton flottant.
+   - Teste dans un vrai navigateur, téléphone compris, puis sur le VRAI site après la mise en ligne avec des comptes
+     simulés (intercepte l'API et la base : rien de réel n'est lu ni écrit). Dis au bilan ce que tu n'as pas pu vérifier
+     (un vrai compte administrateur). Un chantier « à cadrer » ne se crée que pour une vraie décision de produit qu'il
+     n'a pas tranchée (ex. remplacer un écran existant) : propose ta recommandation et avance avec elle.
+   Les utilisateurs s'ajoutent depuis l'app (Projets & membres → e-mail) après leur première connexion.
 6. Commit (scripts, hook, settings.json, CLAUDE.md, balise) avec le pourquoi ; push
    de la branche. S'il a dit « en ligne » : `git fetch origin <main>`,
    fusion dans `<main>`, push, puis `git log origin/<main> -1` pour le
-   prouver.
+   prouver. Projet sur Render : si seuls des fichiers du cockpit changent, la
+   phrase d'exclusion de Render (« skip render » entre crochets) dans le MESSAGE
+   évite le redéploiement (doc Render ; vérifié le 14 oct. : événement « commit
+   ignoré »). Piège payé le 14 oct. : Render la lit n'importe où dans le message,
+   même dans une phrase qui dit de ne pas l'utiliser — jamais dans un envoi qui
+   doit déployer. Un envoi ignoré à tort : mise en ligne à la main (outil Render
+   `trigger_deploy`, du service concerné seulement), puis vérifie que le site
+   sert le nouveau code.
 
 ### 4. Bilan en trois lignes
 
 - **Fait** : branché sous « <Nom> », N chantiers repris, en ligne sur
   <main> (ou sur la branche <x>), autonome oui/non.
 - **Pas fait** : ce qui manque, et pourquoi.
-- **À toi** : ce qu'il doit faire lui-même (ajouter des membres, coller la
-  balise, une clé manquante) — ou « rien ».
+- **À toi** : ce qu'il doit faire lui-même (ajouter des membres, une clé
+  manquante, vérifier avec un vrai compte) — ou « rien ». La balise, c'est toi.
 
 Prérequis côté environnement cloud du projet : `SUPABASE_SERVICE_ROLE_KEY`
 (la clé de la base centrale `bexiyvmdbxcwxasgslxp`), `jq`, `curl`, `python3`.
