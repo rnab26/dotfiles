@@ -318,6 +318,16 @@ répéter.
   chantier avant de t'arrêter, réponds au rappel « sans trace », et écris dans le
   fil du chantier le verdict que je te donne en session. Tu ne certifies jamais :
   c'est moi.
+- **Un message n'est pas un chantier** (16 oct. 2026 : « chaque message que je
+  crée en discussion est transcrit comme un chantier avec une progression […] il
+  vaut mieux une petite pastille de notification et la discussion concernant le
+  chantier en question »). Un chantier = un SUJET de travail qui dure (plusieurs
+  étapes, un résultat à vérifier). Ce que j'écris dans une session est rangé dans le
+  fil du chantier concerné, sinon dans la discussion du projet : tu y réponds
+  (`--point`), tu n'ouvres rien pour une question, un « où ça en est ? », un retour,
+  un ajustement ou la suite d'un sujet existant. Cherche l'existant avant d'ouvrir
+  (`chantier.sh --chercher`). Du travail fait sans aucun chantier : le cockpit te le
+  fait rattacher à l'arrêt.
 - Journal : coche ce qui est fait plutôt que de le supprimer. Note les points
   restés ouverts. Mets à jour à chaque avancée notable, pas à chaque message.
 - N'annonce jamais un chantier terminé s'il reste un doute.
