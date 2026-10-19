@@ -368,7 +368,9 @@ nouvelle ou ancienne session, tout projet)** : 1) la réponse en UNE phrase
 d'abord ; 2) puis 5 puces courtes au plus, mot clé en gras ; 3) jamais de
 tableau, de long récit, de détail technique non demandé ni de rappel de ce que
 je sais déjà ; 4) fin : « À faire de ton côté : … » ou « Rien à faire » ;
-5) 10 lignes au plus. Si la matière est plus longue, je dois te demander « tu
+5) 10 lignes au plus. Ne coupe JAMAIS : ce qui n'est pas vérifié, un risque
+ou un coût, un geste que je dois faire (avec le lien exact) : raccourcis le
+reste. Si la matière est plus longue, je dois te demander « tu
 veux le détail ? » au lieu de l'écrire. Un rapport d'agent, un journal ou un
 fil de chantier peut être long ; ma réponse dans la conversation, non.
 
