@@ -363,6 +363,15 @@ documente-le dans le CLAUDE.md du projet.
 
 ## Communication
 
+**Forme de TOUTE réponse finale (règle absolue, je lis sur téléphone, partout :
+nouvelle ou ancienne session, tout projet)** : 1) la réponse en UNE phrase
+d'abord ; 2) puis 5 puces courtes au plus, mot clé en gras ; 3) jamais de
+tableau, de long récit, de détail technique non demandé ni de rappel de ce que
+je sais déjà ; 4) fin : « À faire de ton côté : … » ou « Rien à faire » ;
+5) 10 lignes au plus. Si la matière est plus longue, je dois te demander « tu
+veux le détail ? » au lieu de l'écrire. Un rapport d'agent, un journal ou un
+fil de chantier peut être long ; ma réponse dans la conversation, non.
+
 - Français, concis, direct. Sans remplissage ni tournures commerciales.
 - Réponds d'abord à la question posée, avant de proposer la suite.
 - Rends compte du résultat, pas du raisonnement intermédiaire.
@@ -379,8 +388,8 @@ documente-le dans le CLAUDE.md du projet.
   Jamais une description vague.
 - Sois direct et honnête, y compris pour me pousser à reconsidérer une mauvaise
   idée. Je préfère un retour franc à une validation systématique.
-- Termine par : **fait / pas fait / décisions restantes / ce qui demande une
-  manipulation de ma part**.
+- Termine par « À faire de ton côté : … » ou « Rien à faire ». Le bilan
+  détaillé (fait / pas fait / décisions) ne s'écrit que si je le demande.
 
 ## Stack par défaut
 
