@@ -1,5 +1,9 @@
 # Kit cockpit — réutilisable sur n'importe quel projet
 
+> **Ancien modèle : ne l'installe plus sur un nouveau projet.** Depuis le 28 sept. 2026 les
+> projets se branchent sur le cockpit central (skill `cockpit`). Voir `README-ANCIEN-MODELE.md`.
+> Ce kit reste pour Jarvis et pour l'historique des pièges.
+
 Extrait du cockpit du projet Jarvis (Supabase + Claude Code), débarrassé de
 tout ce qui lui est propre (voix, Android, notifications). Ce qui reste est le
 mécanisme générique : une table qui porte les chantiers, un hook qui l'injecte
