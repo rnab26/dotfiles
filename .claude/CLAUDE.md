@@ -27,6 +27,7 @@ plutôt que du sur-mesure systématique.
   précises, un champ à la fois, avec les liens directs**. Pas d'étape vague.
 - Si un outil bloque une action normalement autorisée, cherche un autre chemin
   vers le même résultat.
+- **Les PR, je les fusionne moi-même, sur tous les projets** (14 nov. 2026 : « fais automatiquement les merge ») : une PR ouverte, propre et à CI verte se fusionne par la session (`mcp__github__merge_pull_request`), puis mise en ligne vérifiée. Jamais de carte « à fusionner » ni de « fusionne la PR » à Raphaël. Exceptions : brouillon, PR marquée « ne pas fusionner », ou garde-fou de la plateforme.
 - **Exception, et elle n'est pas négociable** : si le blocage vient d'un
   garde-fou de sécurité de la plateforme, arrête-toi, explique-moi ce que tu
   voulais faire et pourquoi c'est bloqué, et laisse-moi décider. Ne cherche
