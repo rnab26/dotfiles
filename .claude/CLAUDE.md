@@ -459,7 +459,8 @@ un projet ; il arrive à tous les projets branchés, actifs et futurs, par le la
 Ponytail, AgentSkills (Addy Osmani), Graphify, Instagram (13 skills `/ig-*`),
 HyperFrames (vidéo à partir de HTML, HeyGen) et, depuis le guide « Find Skills »
 (18 nov. 2026), find-skills, frontend-design, ui-ux-pro-max, copywriting,
-seo-audit, social et apple-design (Emil Kowalski, ajouté le 18 nov.), installés dans CHAQUE session
+seo-audit, social et apple-design (Emil Kowalski, ajouté le 18 nov.), plus Claude SEO
+(AgriciDaniel, commandes `/seo …`, ajouté le 18 nov.), installés dans CHAQUE session
 cloud par `scripts/installer-plugins.sh` de ce dépôt, que le « Setup script »
 de l'environnement cloud lance au démarrage :
 `curl -fsSL https://raw.githubusercontent.com/rnab26/dotfiles/main/scripts/installer-plugins.sh | bash`.
@@ -469,3 +470,6 @@ Le script ne fait jamais échouer le démarrage. OmniRoute n'est pas installé
 HyperFrames : rendu local gratuit uniquement. Ses crédits HeyGen (voix, images,
 musique générées, rendu cloud, plan Pro) sont payants : accord de Raphaël avant
 toute connexion ou dépense, même si le skill pousse à « viser le meilleur résultat ».
+Claude SEO : son moteur se prépare en arrière-plan au démarrage (sinon `/seo setup`),
+et ses extensions payantes (DataForSEO, Ahrefs, Firecrawl…) demandent l'accord de
+Raphaël. Ses API Google gratuites (`/seo google setup`) restent à brancher.
