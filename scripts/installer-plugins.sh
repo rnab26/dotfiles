@@ -52,6 +52,7 @@ vercel-labs/skills find-skills
 anthropics/skills frontend-design
 nextlevelbuilder/ui-ux-pro-max-skill ui-ux-pro-max
 coreyhaines31/marketingskills copywriting seo-audit social
+emilkowalski/skills apple-design
 SKILLS
 
 # Graphify : paquet PyPI « graphifyy » (deux y), la commande s'appelle graphify.
