@@ -14,8 +14,10 @@
 #
 # Source des commandes : fiche « Les 4 plug-ins Claude Code à installer pour
 # vibecoder » (@buildwithmathias), vérifiées le 2026-11-01 avec Claude Code
-# 2.1.316. OmniRoute volontairement absent (bascule sur d'autres modèles,
-# demande une page locale et des clés tierces : décision de Raphaël en attente).
+# 2.1.316. Instagram (13 skills /ig-*, Jake Schincariol, MIT) ajouté le
+# 2026-11-18 à la demande de Raphaël, testé avec Claude Code 2.1.327.
+# OmniRoute volontairement absent (bascule sur d'autres modèles, demande une
+# page locale et des clés tierces : décision de Raphaël en attente).
 
 export PATH="$HOME/.local/bin:/opt/node22/bin:$PATH"
 ok() { echo "[plugins] OK  $*"; }
@@ -30,9 +32,10 @@ if command -v claude >/dev/null 2>&1; then
   done <<'LIST'
 DietrichGebert/ponytail ponytail@ponytail
 addyosmani/agent-skills agent-skills@addy-agent-skills
+Jakeschincariol/instagram-agent-skill instagram-agent@instagram-agent-skill
 LIST
 else
-  ko "commande claude introuvable : ponytail, agent-skills"
+  ko "commande claude introuvable : ponytail, agent-skills, instagram-agent"
 fi
 
 # Graphify : paquet PyPI « graphifyy » (deux y), la commande s'appelle graphify.
