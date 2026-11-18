@@ -459,7 +459,7 @@ un projet ; il arrive à tous les projets branchés, actifs et futurs, par le la
 Ponytail, AgentSkills (Addy Osmani), Graphify, Instagram (13 skills `/ig-*`),
 HyperFrames (vidéo à partir de HTML, HeyGen) et, depuis le guide « Find Skills »
 (18 nov. 2026), find-skills, frontend-design, ui-ux-pro-max, copywriting,
-seo-audit et social, installés dans CHAQUE session
+seo-audit, social et apple-design (Emil Kowalski, ajouté le 18 nov.), installés dans CHAQUE session
 cloud par `scripts/installer-plugins.sh` de ce dépôt, que le « Setup script »
 de l'environnement cloud lance au démarrage :
 `curl -fsSL https://raw.githubusercontent.com/rnab26/dotfiles/main/scripts/installer-plugins.sh | bash`.
