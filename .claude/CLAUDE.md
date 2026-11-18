@@ -456,7 +456,8 @@ un projet ; il arrive à tous les projets branchés, actifs et futurs, par le la
 
 ## Plugins Claude Code installés partout (1er nov. 2026)
 
-Ponytail, AgentSkills (Addy Osmani) et Graphify, installés dans CHAQUE session
+Ponytail, AgentSkills (Addy Osmani), Graphify et Instagram (13 skills `/ig-*`,
+ajouté le 18 nov. 2026), installés dans CHAQUE session
 cloud par `scripts/installer-plugins.sh` de ce dépôt, que le « Setup script »
 de l'environnement cloud lance au démarrage :
 `curl -fsSL https://raw.githubusercontent.com/rnab26/dotfiles/main/scripts/installer-plugins.sh | bash`.
