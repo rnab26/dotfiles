@@ -456,11 +456,16 @@ un projet ; il arrive à tous les projets branchés, actifs et futurs, par le la
 
 ## Plugins Claude Code installés partout (1er nov. 2026)
 
-Ponytail, AgentSkills (Addy Osmani), Graphify et Instagram (13 skills `/ig-*`,
-ajouté le 18 nov. 2026), installés dans CHAQUE session
+Ponytail, AgentSkills (Addy Osmani), Graphify, Instagram (13 skills `/ig-*`),
+HyperFrames (vidéo à partir de HTML, HeyGen) et, depuis le guide « Find Skills »
+(18 nov. 2026), find-skills, frontend-design, ui-ux-pro-max, copywriting,
+seo-audit et social, installés dans CHAQUE session
 cloud par `scripts/installer-plugins.sh` de ce dépôt, que le « Setup script »
 de l'environnement cloud lance au démarrage :
 `curl -fsSL https://raw.githubusercontent.com/rnab26/dotfiles/main/scripts/installer-plugins.sh | bash`.
 Ajouter ou retirer un plugin = modifier ce script sur `main`, jamais ailleurs.
 Le script ne fait jamais échouer le démarrage. OmniRoute n'est pas installé
 (il fait coder un autre modèle que Claude) : décision de Raphaël en attente.
+HyperFrames : rendu local gratuit uniquement. Ses crédits HeyGen (voix, images,
+musique générées, rendu cloud, plan Pro) sont payants : accord de Raphaël avant
+toute connexion ou dépense, même si le skill pousse à « viser le meilleur résultat ».

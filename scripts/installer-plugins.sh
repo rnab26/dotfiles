@@ -33,10 +33,26 @@ if command -v claude >/dev/null 2>&1; then
 DietrichGebert/ponytail ponytail@ponytail
 addyosmani/agent-skills agent-skills@addy-agent-skills
 Jakeschincariol/instagram-agent-skill instagram-agent@instagram-agent-skill
+heygen-com/hyperframes hyperframes@hyperframes
 LIST
 else
-  ko "commande claude introuvable : ponytail, agent-skills, instagram-agent"
+  ko "commande claude introuvable : ponytail, agent-skills, instagram-agent, hyperframes"
 fi
+
+# Skills de l'annuaire skills.sh (guide « Find Skills », 18 nov. 2026) : dépôt | skills.
+# Volontairement absents : pptx, pdf, docx, xlsx, canvas-design (déjà fournis par
+# anthropic-skills) et brand-guidelines (charte graphique d'Anthropic, pas la nôtre).
+# </dev/null : npx lit l'entrée standard et viderait la liste sinon.
+while read -r repo skills; do
+  [ -z "$repo" ] && continue
+  if npx -y skills add "$repo" -s $skills -a claude-code -g -y --copy </dev/null >/dev/null 2>&1; then
+    ok "$skills"; else ko "$repo ($skills)"; fi
+done <<'SKILLS'
+vercel-labs/skills find-skills
+anthropics/skills frontend-design
+nextlevelbuilder/ui-ux-pro-max-skill ui-ux-pro-max
+coreyhaines31/marketingskills copywriting seo-audit social
+SKILLS
 
 # Graphify : paquet PyPI « graphifyy » (deux y), la commande s'appelle graphify.
 if pip3 install -q --user graphifyy >/dev/null 2>&1 \
