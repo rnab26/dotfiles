@@ -34,9 +34,10 @@ DietrichGebert/ponytail ponytail@ponytail
 addyosmani/agent-skills agent-skills@addy-agent-skills
 Jakeschincariol/instagram-agent-skill instagram-agent@instagram-agent-skill
 heygen-com/hyperframes hyperframes@hyperframes
+AgriciDaniel/claude-seo claude-seo@agricidaniel-claude-seo
 LIST
 else
-  ko "commande claude introuvable : ponytail, agent-skills, instagram-agent, hyperframes"
+  ko "commande claude introuvable : ponytail, agent-skills, instagram-agent, hyperframes, claude-seo"
 fi
 
 # Skills de l'annuaire skills.sh (guide « Find Skills », 18 nov. 2026) : dépôt | skills.
@@ -54,6 +55,26 @@ nextlevelbuilder/ui-ux-pro-max-skill ui-ux-pro-max
 coreyhaines31/marketingskills copywriting seo-audit social
 emilkowalski/skills apple-design
 SKILLS
+
+# Claude SEO (AgriciDaniel, MIT) : /seo audit, /seo page, /seo geo, /seo schema…
+# 1) Son moteur (Python isolé + navigateur, ~2 min 30) se prépare EN ARRIÈRE-PLAN pour ne
+#    pas retarder le démarrage ; s'il n'est pas prêt, « /seo setup » le refait.
+# 2) Ses requêtes passent par le relais réseau local de la session cloud (127.0.0.1), qu'il
+#    refuse par sécurité sauf s'il est déclaré de confiance (réglage prévu par l'outil,
+#    docs/TROUBLESHOOTING.md) : on le déclare dans les variables de Claude Code.
+SEO=$(ls -d "$HOME"/.claude/plugins/cache/agricidaniel-claude-seo/claude-seo/*/scripts/claude-seo 2>/dev/null | sort -V | tail -1)
+if [ -n "$SEO" ]; then
+  (nohup bash "$SEO" setup </dev/null >/tmp/claude-seo-setup.log 2>&1 &)
+  ok "claude-seo : moteur en préparation (journal : /tmp/claude-seo-setup.log)"
+fi
+python3 - <<'PY' && ok "claude-seo : relais réseau déclaré" || ko "claude-seo : réglage du relais"
+import json, pathlib
+p = pathlib.Path.home() / ".claude" / "settings.json"
+d = json.loads(p.read_text()) if p.exists() else {}
+d.setdefault("env", {})["CLAUDE_SEO_TRUSTED_PROXIES"] = "127.0.0.1"
+p.parent.mkdir(parents=True, exist_ok=True)
+p.write_text(json.dumps(d, indent=2, ensure_ascii=False) + "\n")
+PY
 
 # Graphify : paquet PyPI « graphifyy » (deux y), la commande s'appelle graphify.
 if pip3 install -q --user graphifyy >/dev/null 2>&1 \
